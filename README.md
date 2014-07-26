@@ -15,4 +15,4 @@ PROJECT HIGHLIGHTS
 
 * Ability to force email authentication - even for externally authenticated accounts
 
-See [documentation](https://github.com/Neilski/NavigationIdentity2/wiki) for more details.
+See [documentation](https://github.com/Neilski/NavigationIdentity2/wiki/Table-of-Contents) for more details.
