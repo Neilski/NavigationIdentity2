@@ -267,15 +267,6 @@
     <Content Include="Scripts\jquery-2.1.1.min.map" />
     <Content Include="Views\Shared\Layout.Master" />
     <Content Include="StateInfo.config" />
-    <Content Include="Web.GitHub.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Web.GitHub.Debug.config">
-      <DependentUpon>Web.GitHub.config</DependentUpon>
-    </Content>
-    <Content Include="Web.GitHub.Release.config">
-      <DependentUpon>Web.GitHub.config</DependentUpon>
-    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

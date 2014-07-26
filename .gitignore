@@ -1,6 +1,8 @@
 ## Ignore project specific exclusions
 
+Web.GitHub.config
 bin/NavigationIdentity.*
+obj/
 
 
 ## Ignore Visual Studio temporary files, build results, and
