@@ -1,0 +1,598 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7238A333-C049-447F-9643-AA6A640C35DD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NavigationIdentity.Web</RootNamespace>
+    <AssemblyName>NavigationIdentity.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <PublishDatabases>false</PublishDatabases>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.2.0\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.2.1.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.0.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.0.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.0.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Navigation, Version=1.9.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Navigation.1.9.1\lib\4.5\Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+    <Reference Include="Twilio.Api">
+      <HintPath>..\packages\Twilio.3.6.16\lib\3.5\Twilio.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Css\BootstrapPlus.css" />
+    <Content Include="Css\BootstrapPlus.min.css" />
+    <Content Include="Css\Bootstrap\bootstrap-theme.css" />
+    <Content Include="Css\Bootstrap\bootstrap-theme.min.css" />
+    <Content Include="Css\Bootstrap\bootstrap.css" />
+    <Content Include="Css\Bootstrap\bootstrap.min.css" />
+    <Content Include="Css\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Css\Site.css" />
+    <Content Include="Css\Site.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Views\Account\ResendVerificationEmail.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Css\BootstrapPlus.less" />
+    <Content Include="Css\Bootstrap\bootstrap-theme.css.map" />
+    <Content Include="Css\Bootstrap\bootstrap.css.map" />
+    <Content Include="Css\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Css\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Css\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Css\Site.less" />
+    <Content Include="App_Browsers\Navigation.browser" />
+    <None Include="Properties\PublishProfiles\Zeus.pubxml" />
+    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\modernizr-2.7.2.js" />
+    <Content Include="Scripts\navigation.mvc.js" />
+    <Content Include="Scripts\navigation.mvc.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Views\Account\AccountLocked.aspx" />
+    <Content Include="Views\Account\AddPhoneNumber.aspx" />
+    <Content Include="Views\Account\ChangePassword.aspx" />
+    <Content Include="Views\Account\Controls\AssignedOAuthProviders.ascx" />
+    <Content Include="Views\Account\Controls\ManagePhoneNumbers.ascx" />
+    <Content Include="Views\Account\Controls\ManageTwoFactorAuthentication.ascx" />
+    <Content Include="Views\Account\Controls\ManageTwoFactorBrowser.ascx" />
+    <Content Include="Views\Account\Controls\OpenAuthProviders.ascx" />
+    <Content Include="Views\Account\Controls\UnassignedOAuthProviders.ascx" />
+    <Content Include="Views\Account\ExternalLoginHandler.aspx" />
+    <Content Include="Views\Account\Login.aspx" />
+    <Content Include="Views\Account\Manage.aspx" />
+    <Content Include="Views\Account\PhoneNumberVerified.aspx" />
+    <Content Include="Views\Account\Register.aspx" />
+    <Content Include="Views\Account\RegistrationConfirmation.aspx" />
+    <Content Include="Views\Account\RegistrationEmailVerification.aspx" />
+    <Content Include="Views\Account\RequestPasswordReset.aspx" />
+    <Content Include="Views\Account\RequestPasswordResetConfirmation.aspx" />
+    <Content Include="Views\Account\ResetPassword.aspx" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.aspx" />
+    <Content Include="Views\Account\SendTwoFactorCode.aspx" />
+    <Content Include="Views\Account\UpdatePersonalDetails.aspx" />
+    <Content Include="Views\Account\UserNotVerified.aspx" />
+    <Content Include="Views\Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Views\Account\VerifyTwoFactorCode.aspx" />
+    <Content Include="Views\Error\ApplicationError.aspx" />
+    <Content Include="Views\Error\PageNotFound.aspx" />
+    <Content Include="Views\Home\About.aspx" />
+    <Content Include="Views\Home\Contact.aspx" />
+    <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <Content Include="Views\Shared\Layout.Master" />
+    <Content Include="StateInfo.config" />
+    <Content Include="Web.GitHub.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.GitHub.Debug.config">
+      <DependentUpon>Web.GitHub.config</DependentUpon>
+    </Content>
+    <Content Include="Web.GitHub.Release.config">
+      <DependentUpon>Web.GitHub.config</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\ApplicationUserManagerFactory.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\IdentityStartup.Auth.cs" />
+    <Compile Include="App_Start\IdentityStartup.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountController.Helpers.cs" />
+    <Compile Include="Controllers\AccountController.SignIn.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Account\AddPhoneNumberViewModel.cs" />
+    <Compile Include="Models\Account\BaseRegistrationViewModel.cs" />
+    <Compile Include="Models\Account\ChangePasswordViewModel.cs" />
+    <Compile Include="Models\Account\ExternalLoginHandlerViewModel.cs" />
+    <Compile Include="Models\Account\IUserRegistration.cs" />
+    <Compile Include="Models\Account\LoginViewModel.cs" />
+    <Compile Include="Models\Account\ManagePhoneNumbersViewModel.cs" />
+    <Compile Include="Models\Account\ManageViewModel.cs" />
+    <Compile Include="Models\Account\PersonalDetailsViewModel.cs" />
+    <Compile Include="Models\Account\RegistrationConfirmationViewModel.cs" />
+    <Compile Include="Models\Account\RegistrationEmailVerificationViewModel.cs" />
+    <Compile Include="Models\Account\RegisterViewModel.cs" />
+    <Compile Include="Models\Account\RequestPasswordResetConfirmationViewModel.cs" />
+    <Compile Include="Models\Account\RequestPasswordResetViewModel.cs" />
+    <Compile Include="Views\Account\ResendVerificationEmail.aspx.cs">
+      <DependentUpon>ResendVerificationEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\ResendVerificationEmail.aspx.designer.cs">
+      <DependentUpon>ResendVerificationEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Account\ResetPasswordViewModel.cs" />
+    <Compile Include="Models\Account\SendTwoFactorCodeViewModel.cs" />
+    <Compile Include="Models\Account\SignInStatus.cs" />
+    <Compile Include="Models\Account\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="Models\Account\VerifyTwoFactorCodeViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ApplicationService.cs" />
+    <Compile Include="Services\EmailService.cs" />
+    <Compile Include="Services\SmsService.cs" />
+    <Compile Include="Views\Account\AccountLocked.aspx.cs">
+      <DependentUpon>AccountLocked.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\AccountLocked.aspx.designer.cs">
+      <DependentUpon>AccountLocked.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\AddPhoneNumber.aspx.cs">
+      <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\AddPhoneNumber.aspx.designer.cs">
+      <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\BaseAccountPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\Controls\AssignedOAuthProviders.ascx.cs">
+      <DependentUpon>AssignedOAuthProviders.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\Controls\AssignedOAuthProviders.ascx.designer.cs">
+      <DependentUpon>AssignedOAuthProviders.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\Controls\BaseAccountUserControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\Controls\ManagePhoneNumbers.ascx.cs">
+      <DependentUpon>ManagePhoneNumbers.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\Controls\ManagePhoneNumbers.ascx.designer.cs">
+      <DependentUpon>ManagePhoneNumbers.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\Controls\ManageTwoFactorAuthentication.ascx.cs">
+      <DependentUpon>ManageTwoFactorAuthentication.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\Controls\ManageTwoFactorAuthentication.ascx.designer.cs">
+      <DependentUpon>ManageTwoFactorAuthentication.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\Controls\ManageTwoFactorBrowser.ascx.cs">
+      <DependentUpon>ManageTwoFactorBrowser.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\Controls\ManageTwoFactorBrowser.ascx.designer.cs">
+      <DependentUpon>ManageTwoFactorBrowser.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\Controls\OpenAuthProviders.ascx.cs">
+      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\Controls\OpenAuthProviders.ascx.designer.cs">
+      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\Controls\UnassignedOAuthProviders.ascx.cs">
+      <DependentUpon>UnassignedOAuthProviders.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\Controls\UnassignedOAuthProviders.ascx.designer.cs">
+      <DependentUpon>UnassignedOAuthProviders.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\ExternalLoginHandler.aspx.cs">
+      <DependentUpon>ExternalLoginHandler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\ExternalLoginHandler.aspx.designer.cs">
+      <DependentUpon>ExternalLoginHandler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\Manage.aspx.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\Manage.aspx.designer.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\PhoneNumberVerified.aspx.cs">
+      <DependentUpon>PhoneNumberVerified.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\PhoneNumberVerified.aspx.designer.cs">
+      <DependentUpon>PhoneNumberVerified.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\RegistrationConfirmation.aspx.cs">
+      <DependentUpon>RegistrationConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\RegistrationConfirmation.aspx.designer.cs">
+      <DependentUpon>RegistrationConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\RegistrationEmailVerification.aspx.cs">
+      <DependentUpon>RegistrationEmailVerification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\RegistrationEmailVerification.aspx.designer.cs">
+      <DependentUpon>RegistrationEmailVerification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\RequestPasswordReset.aspx.cs">
+      <DependentUpon>RequestPasswordReset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\RequestPasswordReset.aspx.designer.cs">
+      <DependentUpon>RequestPasswordReset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\RequestPasswordResetConfirmation.aspx.cs">
+      <DependentUpon>RequestPasswordResetConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\RequestPasswordResetConfirmation.aspx.designer.cs">
+      <DependentUpon>RequestPasswordResetConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\ResetPassword.aspx.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\ResetPassword.aspx.designer.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\ResetPasswordConfirmation.aspx.cs">
+      <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\ResetPasswordConfirmation.aspx.designer.cs">
+      <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\SendTwoFactorCode.aspx.cs">
+      <DependentUpon>SendTwoFactorCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\SendTwoFactorCode.aspx.designer.cs">
+      <DependentUpon>SendTwoFactorCode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\UpdatePersonalDetails.aspx.cs">
+      <DependentUpon>UpdatePersonalDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\UpdatePersonalDetails.aspx.designer.cs">
+      <DependentUpon>UpdatePersonalDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\UserNotVerified.aspx.cs">
+      <DependentUpon>UserNotVerified.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\UserNotVerified.aspx.designer.cs">
+      <DependentUpon>UserNotVerified.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\VerifyPhoneNumber.aspx.cs">
+      <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\VerifyPhoneNumber.aspx.designer.cs">
+      <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\VerifyTwoFactorCode.aspx.cs">
+      <DependentUpon>VerifyTwoFactorCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\VerifyTwoFactorCode.aspx.designer.cs">
+      <DependentUpon>VerifyTwoFactorCode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Error\ApplicationError.aspx.cs">
+      <DependentUpon>ApplicationError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Error\ApplicationError.aspx.designer.cs">
+      <DependentUpon>ApplicationError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Error\PageNotFound.aspx.cs">
+      <DependentUpon>PageNotFound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Error\PageNotFound.aspx.designer.cs">
+      <DependentUpon>PageNotFound.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Home\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Home\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Home\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Layout.Master.cs">
+      <DependentUpon>Layout.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\Layout.Master.designer.cs">
+      <DependentUpon>Layout.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="bin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NavigationIdentity.Dal\NavigationIdentity.Dal.csproj">
+      <Project>{b9486d68-7c51-4c9b-8ee6-d13f52892efb}</Project>
+      <Name>NavigationIdentity.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NavigationIdentity.Models\NavigationIdentity.Models.csproj">
+      <Project>{477b1577-fc54-4d02-8d6e-13dc1bcf4db7}</Project>
+      <Name>NavigationIdentity.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62103</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:62103/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

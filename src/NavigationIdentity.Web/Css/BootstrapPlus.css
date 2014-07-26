@@ -1,0 +1,38 @@
+﻿h2 {
+  padding-bottom: 0.5em;
+  margin-bottom: 1.0em;
+  border-bottom: solid 1px #eaeaea;
+}
+.full-width {
+  width: 100%;
+}
+.margin-05 {
+  margin-top: 0.5em !important;
+  margin-bottom: 0.5em !important;
+}
+.margin-1 {
+  margin-top: 1.0em !important;
+  margin-bottom: 1.0em !important;
+}
+.margin-2 {
+  margin-top: 2.0em !important;
+  margin-bottom: 2.0em !important;
+}
+.margin-top-05 {
+  margin-top: 0.5em !important;
+}
+.margin-top-1 {
+  margin-top: 1.0em !important;
+}
+.margin-top-2 {
+  margin-top: 2.0em !important;
+}
+.margin-bottom-05 {
+  margin-bottom: 0.5em !important;
+}
+.margin-bottom-1 {
+  margin-bottom: 1.0em !important;
+}
+.margin-bottom-2 {
+  margin-bottom: 2.0em !important;
+}

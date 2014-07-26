@@ -1,0 +1,70 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.Master.cs" Inherits="NavigationIdentity.Web.Views.Shared.Layout" %>
+<%@ Import Namespace="NavigationIdentity.Web.Services" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title><%: Page.Title %> - My ASP.NET Application</title>
+
+   <%: Styles.Render("~/Css/Bootstrap/bundle") %>
+   <%: Styles.Render("~/Css/site") %>
+
+   <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+<body>
+   <form runat="server">
+      <div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="container">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+               </button>
+               <asp:HyperLink runat="server" NavigateUrl="{NavigationLink Home}" CssClass="navbar-brand"><%: ApplicationService.ApplicationName %></asp:HyperLink>
+            </div>
+            <div class="navbar-collapse collapse">
+               <ul class="nav navbar-nav">
+                  <li><asp:HyperLink runat="server" NavigateUrl="{NavigationLink Home}">Home</asp:HyperLink></li>
+                  <li><asp:HyperLink runat="server" NavigateUrl="{NavigationLink About}">About</asp:HyperLink></li>
+                  <li><asp:HyperLink runat="server" NavigateUrl="{NavigationLink Contact}">Contact</asp:HyperLink></li>
+               </ul>
+               <asp:LoginView runat="server" ViewStateMode="Disabled">
+                  <AnonymousTemplate>
+                     <ul class="nav navbar-nav navbar-right">
+                        <li><asp:HyperLink runat="server" NavigateUrl="{NavigationLink Register}">Register</asp:HyperLink></li>
+                        <li><asp:HyperLink runat="server" NavigateUrl="{NavigationLink Login}">Log in</asp:HyperLink></li>
+                     </ul>
+                  </AnonymousTemplate>
+                  <LoggedInTemplate>
+                     <ul class="nav navbar-nav navbar-right">
+                        <li><asp:HyperLink runat="server" NavigateUrl="{NavigationLink Manage}">Hello, <%: Context.User.Identity.GetUserName() %> !</asp:HyperLink></li>
+                        <asp:FormView runat="server" SelectMethod="Logout" OnCallingDataMethods="Control_CallingDataMethods" RenderOuterTable="false">
+                           <ItemTemplate>
+                              <li><asp:HyperLink runat="server" NavigateUrl="{NavigationLink Home, Logout=true}">Logout</asp:HyperLink></li>
+                           </ItemTemplate>
+                        </asp:FormView>
+                     </ul>
+                  </LoggedInTemplate>
+               </asp:LoginView>
+            </div>
+         </div>
+      </div>
+      <div class="container body-content">
+         <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+         <hr />
+         <footer>
+            <p>&copy; <%: DateTime.Now.Year %> - Navigation Identity2</p>
+         </footer>
+      </div>
+   </form>
+
+   <%: Scripts.Render("~/script/site") %>
+   <asp:ContentPlaceHolder ID="JavaScript" runat="server" />
+
+</body>
+</html>
