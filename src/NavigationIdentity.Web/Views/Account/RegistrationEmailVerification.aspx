@@ -10,9 +10,8 @@
 
          <asp:Panel runat="server" ID="pnlSuccess" Visible="<%# Item.Success %>">
             <p>
-               Thank you.  Your account has been verified and you will now be
-               <asp:HyperLink runat="server" 
-                  NavigateUrl="{NavigationLink Manage}">logged</asp:HyperLink>
+               Thank you.  Your account has been verified and you will now be able to
+               <asp:HyperLink runat="server" NavigateUrl="{NavigationLink Manage}">login</asp:HyperLink>
                to your new account.
             </p>
          </asp:Panel>
@@ -24,8 +23,7 @@
             </p>
             <p>
                Please try clicking on the link in your email again or
-               <asp:HyperLink runat="server" 
-                  NavigateUrl="{NavigationLink Contact}">contacting</asp:HyperLink>
+               <asp:HyperLink runat="server" NavigateUrl="{NavigationLink Contact}">contacting</asp:HyperLink>
                the web site administrator.
             </p>
          </asp:Panel>

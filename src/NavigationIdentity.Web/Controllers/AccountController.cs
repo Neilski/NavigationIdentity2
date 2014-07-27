@@ -413,11 +413,6 @@ namespace NavigationIdentity.Web.Controllers
                   return null;
                }
 
-               // Comment out the following code if you want to force the
-               // user to physically login
-               var user = _userManager.FindById(userId);
-               SignIn(user, isPersistent: false);
-
                return new RegistrationEmailVerificationViewModel
                {
                   Success = true,
