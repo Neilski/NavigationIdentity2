@@ -1,9 +1,11 @@
 ﻿<%@ Page Title="Request Password Reset Confirmation" Language="C#" MasterPageFile="~/Views/Shared/Layout.Master" AutoEventWireup="true" CodeBehind="RequestPasswordResetConfirmation.aspx.cs" Inherits="NavigationIdentity.Web.Views.Account.RequestPasswordResetConfirmation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-   <asp:FormView runat="server" ItemType="NavigationIdentity.Web.Models.Account.RequestPasswordResetConfirmationViewModel"
-      DefaultMode="ReadOnly" SelectMethod="GetRequestPasswordResetConfirmation" 
-      OnCallingDataMethods="GetAccountController" RenderOuterTable="false">
+   <asp:FormView runat="server" RenderOuterTable="false"
+      ItemType="NavigationIdentity.Web.Models.Account.RequestPasswordResetConfirmationViewModel"
+      DefaultMode="ReadOnly"
+      SelectMethod="GetRequestPasswordResetConfirmation" 
+      OnCallingDataMethods="GetAccountController">
       <ItemTemplate>
          <h2>Reset Password Confirmation</h2>
 

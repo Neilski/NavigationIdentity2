@@ -1,7 +1,17 @@
-﻿
+﻿using System.Web.UI;
+using System.Web.UI.WebControls;
+using NavigationIdentity.Web.Controllers;
+
+
 namespace NavigationIdentity.Web.Views.Account.Controls
 {
-   public partial class OpenAuthProviders : BaseAccountUserControl
+   public partial class OpenAuthProviders 
+      : UserControl
    {
+      protected void
+      GetAccountController(object sender, CallingDataMethodsEventArgs e)
+      {
+         e.DataMethodsObject = new AccountController();
+      }
    }
 }

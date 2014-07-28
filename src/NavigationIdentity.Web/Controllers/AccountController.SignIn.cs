@@ -8,6 +8,7 @@ using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
+
 namespace NavigationIdentity.Web.Controllers
 {
    /// <summary>
@@ -30,9 +31,10 @@ namespace NavigationIdentity.Web.Controllers
          GetVerifiedUserId()
       {
          var result = Task.Run(
-            async () => await _authenticationManager
-               .AuthenticateAsync(DefaultAuthenticationTypes.TwoFactorCookie))
-            .Result;
+            async () =>
+               await
+                  _authenticationManager.AuthenticateAsync(
+                     DefaultAuthenticationTypes.TwoFactorCookie)).Result;
 
          if ((result != null) && (result.Identity != null) &&
              (!String.IsNullOrEmpty(result.Identity.GetUserId())))
@@ -51,7 +53,7 @@ namespace NavigationIdentity.Web.Controllers
 
 
       public void
-         SignInAsync(
+         SignIn(
          ApplicationUser user,
          bool isPersistent,
          bool rememberBrowser)
@@ -113,7 +115,7 @@ namespace NavigationIdentity.Web.Controllers
             // When token is verified correctly, clear the access failed count
             // used for lockout
             _userManager.ResetAccessFailedCount(user.Id);
-            SignInAsync(user, isPersistent, rememberBrowser);
+            SignIn(user, isPersistent, rememberBrowser);
             return SignInStatus.Success;
          }
          // If the token is incorrect, record the failure which also may cause
@@ -148,7 +150,6 @@ namespace NavigationIdentity.Web.Controllers
          ApplicationUser user,
          bool isPersistent)
       {
-
          // ForceEmailVerifaction is an extended property defined in this
          // implemenation of ApplicationUserManager
          if (_userManager.ForceEmailVerification)
@@ -161,24 +162,22 @@ namespace NavigationIdentity.Web.Controllers
 
          if (_userManager.GetTwoFactorEnabled(user.Id) &&
              !Task.Run(
-                async () => await _authenticationManager
-                   .TwoFactorBrowserRememberedAsync(user.Id))
-                .Result)
+                async () =>
+                   await
+                      _authenticationManager.TwoFactorBrowserRememberedAsync(
+                         user.Id)).Result)
          {
-            var identity = new ClaimsIdentity(
-               DefaultAuthenticationTypes.TwoFactorCookie
-               );
+            var identity =
+               new ClaimsIdentity(DefaultAuthenticationTypes.TwoFactorCookie);
 
-            identity.AddClaim(
-               new Claim(ClaimTypes.NameIdentifier, user.Id)
-               );
+            identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id));
 
             _authenticationManager.SignIn(identity);
 
             return SignInStatus.RequiresTwoFactorAuthentication;
          }
 
-         SignInAsync(user, isPersistent, false);
+         SignIn(user, isPersistent, false);
          return SignInStatus.Success;
       }
 
@@ -240,5 +239,6 @@ namespace NavigationIdentity.Web.Controllers
             identity
             );
       }
+
    }
 }

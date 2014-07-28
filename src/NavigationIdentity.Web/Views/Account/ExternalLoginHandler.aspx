@@ -4,6 +4,7 @@
    <asp:FormView runat="server" RenderOuterTable="false"
       ItemType="NavigationIdentity.Web.Models.Account.ExternalLoginHandlerViewModel"
       DefaultMode="Edit"
+      DataKeyNames="ProviderName"
       SelectMethod="GetExternalLoginHandler"
       UpdateMethod="ExternalLoginHandler"
       OnCallingDataMethods="GetAccountController">
@@ -13,14 +14,12 @@
 
             <p>
                You've authenticated with 
-               <strong><%# Item.ProviderName %></strong>.
+               <strong><%#: Item.ProviderName %></strong>.
                Please enter a username and email address below to associate
                this provider with a local account.
             </p>
 
             <asp:ValidationSummary runat="server" CssClass="text-danger" />
-            
-            <asp:HiddenField runat="server" ID="ProviderName" Value="<%# Item.ProviderName %>"/>
 
             <div class="form-group">
                <asp:Label runat="server" AssociatedControlID="UserName" CssClass="col-md-3 control-label">Username</asp:Label>

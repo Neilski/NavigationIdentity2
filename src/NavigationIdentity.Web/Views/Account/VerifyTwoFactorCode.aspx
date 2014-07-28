@@ -1,22 +1,24 @@
 ﻿<%@ Page Title="Verify Two-Factor Code" Language="C#" MasterPageFile="~/Views/Shared/Layout.Master" AutoEventWireup="true" CodeBehind="VerifyTwoFactorCode.aspx.cs" Inherits="NavigationIdentity.Web.Views.Account.VerifyTwoFactorCode" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-   <asp:FormView runat="server" ItemType="NavigationIdentity.Web.Models.Account.VerifyTwoFactorCodeViewModel" 
-      DefaultMode="Edit" SelectMethod="GetVerifyTwoFactorCode" UpdateMethod="VerifyTwoFactorCode"
-      OnCallingDataMethods="GetAccountController" RenderOuterTable="false">
+   <asp:FormView runat="server" RenderOuterTable="false"
+      ItemType="NavigationIdentity.Web.Models.Account.VerifyTwoFactorCodeViewModel"
+      DefaultMode="Edit"
+      DataKeyNames="Provider"
+      SelectMethod="GetVerifyTwoFactorCode"
+      UpdateMethod="VerifyTwoFactorCode"
+      OnCallingDataMethods="GetAccountController">
       <EditItemTemplate>
          <div class="form-horizontal">
             <h2>Verify Two-Factor Code</h2>
 
             <p>
                A verifaction code has been sent to your 
-               <strong><%# Item.Provider %></strong>.  Please enter the code
+               <strong><%#: Item.Provider %></strong>.  Please enter the code
                below to verify this provider.
             </p>
 
             <asp:ValidationSummary runat="server" CssClass="text-danger" />
-            
-            <asp:HiddenField runat="server" ID="PhoneNumber" Value="<%# BindItem.Provider %>" />
 
             <div class="form-group">
                <asp:Label runat="server" AssociatedControlID="Code" CssClass="col-md-2 control-label">Code</asp:Label>
@@ -49,7 +51,7 @@
             <p>
                Code:
                <strong>
-                  <asp:Literal runat="server" ID="DemoCode" Text="<%# Item.DemoCode %>" />
+                  <asp:Literal runat="server" ID="DemoCode" Text="<%# Item.DemoCode %>" Mode="Encode" />
                </strong>
             </p>
          </asp:Panel>

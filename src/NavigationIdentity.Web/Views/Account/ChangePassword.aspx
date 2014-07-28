@@ -3,7 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
    <asp:FormView runat="server" RenderOuterTable="false"
       ItemType="NavigationIdentity.Web.Models.Account.ChangePasswordViewModel"
-      DefaultMode="Insert" InsertMethod="ChangePassword" 
+      DefaultMode="Insert"
+      InsertMethod="ChangePassword" 
       OnCallingDataMethods="GetAccountController">
       <InsertItemTemplate>
          <div class="form-horizontal">

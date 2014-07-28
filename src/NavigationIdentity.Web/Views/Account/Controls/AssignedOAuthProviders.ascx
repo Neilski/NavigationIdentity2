@@ -9,7 +9,7 @@
    OnCallingDataMethods="GetAccountController">
 
    <LayoutTemplate>
-      <ul class="list-unstyled">
+      <ul class="list-unstyled item-margin-05">
          <li runat="server" id="itemPlaceholder"></li>
       </ul>
    </LayoutTemplate>
@@ -20,9 +20,9 @@
       </p>
    </EmptyDataTemplate>
    <ItemTemplate>
-      <li class="margin-05">
+      <li>
          <asp:Button runat="server" Text="<%#Item.AuthenticationType %>" CommandName="Delete" CausesValidation="false"
-            ToolTip='<%# "Remove this " + Item.AuthenticationType + " login from your account" %>'
+            ToolTip='<%#: "Remove this " + Item.AuthenticationType + " login from your account" %>'
             CssClass="btn btn-default full-width" />
       </li>
    </ItemTemplate>

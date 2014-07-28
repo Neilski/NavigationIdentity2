@@ -6,7 +6,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
    <asp:FormView runat="server" RenderOuterTable="false"
       ItemType="NavigationIdentity.Web.Models.Account.LoginViewModel"
-      DefaultMode="Insert" InsertMethod="Login" 
+      DefaultMode="Insert"
+      InsertMethod="Login" 
       OnCallingDataMethods="GetAccountController">
       <InsertItemTemplate>
          <h2>Log in.</h2>

@@ -21,6 +21,7 @@ namespace NavigationIdentity.Web.Controllers
       #region Enumerations
       public enum ManageMessageId
       {
+
          AccountVerified,
          ChangePasswordSuccess,
          UserDetailsUpdateSuccess,
@@ -378,7 +379,7 @@ namespace NavigationIdentity.Web.Controllers
          var model = new RegistrationConfirmationViewModel();
          var code = StateContext.Data[CodeKey] as string;
          var userId = StateContext.Data[UserIdKey] as string;
-         model.IsRegistration = 
+         model.IsRegistration =
             StateContext.Data[IsValidationReminderKey] as bool? ?? false;
 
          if ((code == null) || (userId == null)) return model;
@@ -404,7 +405,6 @@ namespace NavigationIdentity.Web.Controllers
             var result = _userManager.ConfirmEmail(userId, code);
             if (result.Succeeded)
             {
-
                // If the user is already logged in then return to the manager
                // with an appropriate message
                if (_context.User.Identity.IsAuthenticated)
@@ -613,12 +613,10 @@ namespace NavigationIdentity.Web.Controllers
       {
          if (!context.ModelState.IsValid) return;
 
-         // Send result of: manager.GetPhoneNumberCodeAsync(User.Identity.GetUserId(), phoneNumber);
-         // Generate the token and send it
          var userId = _context.User.Identity.GetUserId();
          var code = _userManager.GenerateChangePhoneNumberToken(
-            userId,
-            model.PhoneNumber);
+            userId, model.PhoneNumber);
+
          if (_userManager.SmsService != null)
          {
             var message = new IdentityMessage
@@ -666,8 +664,7 @@ namespace NavigationIdentity.Web.Controllers
 
          var userId = _context.User.Identity.GetUserId();
          var result = _userManager.ChangePhoneNumber(
-            userId, model.PhoneNumber,
-            model.Code);
+            userId, model.PhoneNumber, model.Code);
 
          if (result.Succeeded)
          {
@@ -683,6 +680,14 @@ namespace NavigationIdentity.Web.Controllers
          {
             context.ModelState.AddModelError("", "Invalid verification code");
          }
+      }
+
+
+      public IEnumerable<string>
+         GetValidTwoFactorProviders()
+      {
+         var userId = GetVerifiedUserId();
+         return _userManager.GetValidTwoFactorProviders(userId);
       }
 
 
@@ -706,7 +711,8 @@ namespace NavigationIdentity.Web.Controllers
                "VerifyTwoFactorCode", new NavigationData
                {
                   {ProviderNameKey, model.Provider},
-                  {CodeKey, code}
+                  {CodeKey, code},
+                  {ReturnUrlKey, StateContext.Bag.ReturnUrl}
                });
          }
          else
@@ -849,9 +855,9 @@ namespace NavigationIdentity.Web.Controllers
                return null;
             case SignInStatus.RequiresTwoFactorAuthentication:
                StateController.Navigate(
-                  "TwoFactorLogin", new NavigationData
+                  "SendTwoFactorCode", new NavigationData
                   {
-                     {ReturnUrlKey, StateContext.Data[ReturnUrlKey]}
+                     {ReturnUrlKey, StateContext.Bag.ReturnUrlKey}
                   });
                return null;
          }

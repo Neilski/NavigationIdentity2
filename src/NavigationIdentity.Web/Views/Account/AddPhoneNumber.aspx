@@ -3,7 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
    <asp:FormView runat="server" RenderOuterTable="false"
       ItemType="NavigationIdentity.Web.Models.Account.AddPhoneNumberViewModel" 
-      DefaultMode="Insert" InsertMethod="AddPhoneNumber" 
+      DefaultMode="Insert"
+      InsertMethod="AddPhoneNumber" 
       OnCallingDataMethods="GetAccountController">
       <InsertItemTemplate>
          <div class="form-horizontal">

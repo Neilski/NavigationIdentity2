@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="Manage Account" Language="C#" MasterPageFile="~/Views/Shared/Layout.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="NavigationIdentity.Web.Views.Account.Manage" %>
+<%@ Import Namespace="RestSharp.Extensions" %>
 
 <%@ Register Src="~/Views/Account/Controls/ManagePhoneNumbers.ascx" TagPrefix="uc1" TagName="ManagePhoneNumbers" %>
 <%@ Register Src="~/Views/Account/Controls/ManageTwoFactorAuthentication.ascx" TagPrefix="uc1" TagName="ManageTwoFactorAuthentication" %>
@@ -7,17 +8,6 @@
 <%@ Register Src="~/Views/Account/Controls/UnassignedOAuthProviders.ascx" TagPrefix="uc1" TagName="UnassignedOAuthProviders" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="JavaScript">
-   <script type="text/javascript">
-      $(function() {
-         var $message = $("#status-message-panel");
-         // Only hide trivial/information messages
-         if (($message.length) && (!$message.hasClass("panel-danger"))) {
-            setTimeout(function() {
-               $message.slideUp(500);
-            }, 5000);
-         }
-      });
-   </script>
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
@@ -28,24 +18,25 @@
          <hr />
          <asp:FormView runat="server" RenderOuterTable="false"
             ItemType="NavigationIdentity.Web.Models.Account.ManageViewModel"
-            DefaultMode="ReadOnly" SelectMethod="Manage" 
+            DefaultMode="ReadOnly"
+            SelectMethod="Manage" 
             OnCallingDataMethods="GetAccountController">
             <ItemTemplate>
                
                <asp:Panel runat="server" Visible="<%# Item.HasMessage %>">
                   <div id="status-message-panel" class="panel panel-<%# ((Item.Error) ? "danger" : "success") %>">
                      <div class="panel-heading">
-                        <%# Item.StatusMessage %>
+                        <%#: Item.StatusMessage %>
                      </div>
                   </div>
                </asp:Panel>
 
-               <p>Hello <%# Item.FirstName %>,</p>
+               <p>Hello <%#: Item.FirstName %>,</p>
                <p>
-                  You are logged in as <strong><%# Item.UserName %></strong>
+                  You are logged in as <strong><%#: Item.UserName %></strong>
                   <asp:Label runat="server" CssClass="text-muted"
                      Visible="<%# !Item.UserNameEqualsEmail %>">
-                     (email address: <%# Item.Email %>)
+                     (email address: <%#: Item.Email %>)
                   </asp:Label>
                </p>
                <asp:Panel runat="server" Visible="<%# !Item.IsEmailConfirmed %>">
@@ -64,7 +55,7 @@
                </asp:Panel>
                <asp:Panel runat="server" Visible="<%# Item.IsEmailConfirmed %>">
                   <p>What would you like to do?</p>
-                  <ul>
+                  <ul class="item-margin-1">
                      <li>
                         <asp:HyperLink runat="server" NavigateUrl="{NavigationLink ChangePassword}">
                            Change Password

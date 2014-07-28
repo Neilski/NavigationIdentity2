@@ -2,7 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
    <asp:FormView runat="server" RenderOuterTable="false"
-      DefaultMode="Insert" InsertMethod="ResendVerificationEmail" 
+      DefaultMode="Insert"
+      InsertMethod="ResendVerificationEmail" 
       OnCallingDataMethods="GetAccountController">
       <InsertItemTemplate>
          <h2><%: Title %></h2>

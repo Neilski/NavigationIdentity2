@@ -3,7 +3,8 @@
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
    <asp:FormView runat="server" RenderOuterTable="false"
       ItemType="NavigationIdentity.Web.Models.Account.RegistrationEmailVerificationViewModel"
-      DefaultMode="ReadOnly" SelectMethod="GetRegistrationEmailVerification" 
+      DefaultMode="ReadOnly"
+      SelectMethod="GetRegistrationEmailVerification" 
       OnCallingDataMethods="GetAccountController">
       <ItemTemplate>
          <h2>Email Verified</h2>

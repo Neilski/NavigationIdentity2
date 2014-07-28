@@ -3,7 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
    <asp:FormView runat="server" RenderOuterTable="false"
       ItemType="NavigationIdentity.Web.Models.Account.PersonalDetailsViewModel"
-      DefaultMode="Edit" SelectMethod="GetPersonalDetails" UpdateMethod="UpdatePersonalDetails"
+      DefaultMode="Edit"
+      SelectMethod="GetPersonalDetails"
+      UpdateMethod="UpdatePersonalDetails"
       OnCallingDataMethods="GetAccountController">
       <EditItemTemplate>
          <div class="form-horizontal">

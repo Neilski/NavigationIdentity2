@@ -1,16 +1,18 @@
 ﻿<%@ Page Title="Verify Phone Number" Language="C#" MasterPageFile="~/Views/Shared/Layout.Master" AutoEventWireup="true" CodeBehind="VerifyPhoneNumber.aspx.cs" Inherits="NavigationIdentity.Web.Views.Account.VerifyPhoneNumber" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-   <asp:FormView runat="server" ItemType="NavigationIdentity.Web.Models.Account.VerifyPhoneNumberViewModel"
-      DefaultMode="Edit" SelectMethod="GetVerifyPhoneNumber" UpdateMethod="VerifyPhoneNumber"
+   <asp:FormView runat="server" 
+      ItemType="NavigationIdentity.Web.Models.Account.VerifyPhoneNumberViewModel"
+      DefaultMode="Edit" 
+      DataKeyNames="PhoneNumber"
+      SelectMethod="GetVerifyPhoneNumber" 
+      UpdateMethod="VerifyPhoneNumber"
       OnCallingDataMethods="GetAccountController" RenderOuterTable="false">
       <EditItemTemplate>
          <div class="form-horizontal">
             <h2>Verify Phone Number</h2>
 
             <asp:ValidationSummary runat="server" CssClass="text-danger" />
-            
-            <asp:HiddenField runat="server" ID="PhoneNumber" Value="<%# BindItem.PhoneNumber %>" />
 
             <div class="form-group">
                <asp:Label runat="server" AssociatedControlID="Code" CssClass="col-md-2 control-label">Code</asp:Label>
@@ -36,7 +38,7 @@
             <p>
                Code:
                <strong>
-                  <asp:Literal runat="server" ID="DemoCode" Text="<%# Item.DemoCode %>" />
+                  <asp:Literal runat="server" ID="DemoCode" Text="<%# Item.DemoCode %>" Mode="Encode" />
                </strong>
             </p>
          </asp:Panel>

@@ -1,9 +1,11 @@
 ﻿<%@ Page Title="Reset Password" Language="C#" MasterPageFile="~/Views/Shared/Layout.Master" AutoEventWireup="true" CodeBehind="ResetPassword.aspx.cs" Inherits="NavigationIdentity.Web.Views.Account.ResetPassword" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-   <asp:FormView runat="server" ItemType="NavigationIdentity.Web.Models.Account.ResetPasswordViewModel"
-      DefaultMode="Insert" InsertMethod="ResetPassword"
-      OnCallingDataMethods="GetAccountController" RenderOuterTable="false">
+   <asp:FormView runat="server" RenderOuterTable="false"
+      ItemType="NavigationIdentity.Web.Models.Account.ResetPasswordViewModel"
+      DefaultMode="Insert"
+      InsertMethod="ResetPassword"
+      OnCallingDataMethods="GetAccountController">
       <InsertItemTemplate>
          <div class="form-horizontal">
             <h2>Reset Password.</h2>

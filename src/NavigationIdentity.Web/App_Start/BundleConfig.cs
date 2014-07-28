@@ -33,11 +33,11 @@ namespace NavigationIdentity.Web
 
 
          #region JavaScript Bundles
-         bundles.Add(new ScriptBundle("~/script/site").Include(
-            "~/Scripts/jquery-{version}.js",
-            "~/Scripts/jquery-ui-{version}.js",
-            "~/Scripts/bootstrap.js"
-         ));
+         // Uncomment the following code to enable jQuery and Bootstrap mobile
+         // bundles.Add(new ScriptBundle("~/script/site").Include(
+         //    "~/Scripts/jquery-{version}.js",
+         //    "~/Scripts/bootstrap.js"
+         // ));
          #endregion JavaScript Bundles
 
       }

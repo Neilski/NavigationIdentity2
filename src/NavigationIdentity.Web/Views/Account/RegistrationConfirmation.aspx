@@ -3,7 +3,8 @@
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
    <asp:FormView runat="server" RenderOuterTable="false"
       ItemType="NavigationIdentity.Web.Models.Account.RegistrationConfirmationViewModel"
-      DefaultMode="ReadOnly" SelectMethod="GetRegistrationConfirmation"
+      DefaultMode="ReadOnly"
+      SelectMethod="GetRegistrationConfirmation"
       OnCallingDataMethods="GetAccountController">
       <ItemTemplate>
          <h2>Account Confirmation</h2>

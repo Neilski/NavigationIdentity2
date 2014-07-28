@@ -4,7 +4,8 @@
 
    <asp:FormView runat="server" RenderOuterTable="false"
       ItemType="NavigationIdentity.Web.Models.Account.RegisterViewModel"
-      DefaultMode="Insert" InsertMethod="Register" 
+      DefaultMode="Insert"
+      InsertMethod="Register" 
       OnCallingDataMethods="GetAccountController">
       <InsertItemTemplate>
          <h2>Register. <small>Create a new account.</small></h2>

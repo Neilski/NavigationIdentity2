@@ -3,7 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
    <asp:FormView runat="server" RenderOuterTable="false"
       ItemType="NavigationIdentity.Web.Models.Account.SendTwoFactorCodeViewModel"
-      DefaultMode="Insert" InsertMethod="SendTwoFactorCode"
+      DefaultMode="Insert"
+      InsertMethod="SendTwoFactorCode"
       OnCallingDataMethods="GetAccountController">
       <InsertItemTemplate>
          <div class="form-horizontal">
@@ -18,7 +19,12 @@
             <div class="form-group">
                <asp:Label runat="server" AssociatedControlID="Providers" CssClass="col-md-2 control-label">Two-Factor Providers</asp:Label>
                <div class="col-md-4">
-                  <asp:DropDownList runat="server" ID="Providers" OnCallingDataMethods="GetAccountController" ItemType="System.String" SelectMethod="GetProvidersForCurrentUser" SelectedValue="<%# BindItem.Provider %>" CssClass="form-control" />
+                  <asp:DropDownList runat="server" ID="Providers" 
+                     ItemType="System.String" 
+                     OnCallingDataMethods="GetAccountController" 
+                     SelectMethod="GetValidTwoFactorProviders" 
+                     SelectedValue="<%# BindItem.Provider %>" 
+                     CssClass="form-control" />
                </div>
             </div>
             <div class="form-group">
