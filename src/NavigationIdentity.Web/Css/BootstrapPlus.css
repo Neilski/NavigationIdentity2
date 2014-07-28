@@ -36,3 +36,11 @@
 .margin-bottom-2 {
   margin-bottom: 2.0em !important;
 }
+.item-margin-05 li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.item-margin-1 li {
+  margin-top: 1.0em;
+  margin-bottom: 1.0em;
+}
