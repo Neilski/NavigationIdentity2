@@ -857,7 +857,7 @@ namespace NavigationIdentity.Web.Controllers
                StateController.Navigate(
                   "SendTwoFactorCode", new NavigationData
                   {
-                     {ReturnUrlKey, StateContext.Bag.ReturnUrlKey}
+                     {ReturnUrlKey, StateContext.Data[ReturnUrlKey]}
                   });
                return null;
          }
