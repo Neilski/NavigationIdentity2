@@ -21,7 +21,7 @@
    <ItemTemplate>
       <li>
          <asp:Button runat="server" Text="<%# Item.AuthenticationType %>" CommandName="Update" CausesValidation="false"
-            ToolTip='<%#: "Add this " + Item.AuthenticationType + " login to your account" %>'
+            ToolTip='<%# "Add this " + Item.AuthenticationType + " login to your account" %>'
             CssClass="btn btn-default full-width" />
       </li>
    </ItemTemplate>

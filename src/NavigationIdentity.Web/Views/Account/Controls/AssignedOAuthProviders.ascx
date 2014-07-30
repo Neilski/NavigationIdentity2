@@ -22,7 +22,7 @@
    <ItemTemplate>
       <li>
          <asp:Button runat="server" Text="<%#Item.AuthenticationType %>" CommandName="Delete" CausesValidation="false"
-            ToolTip='<%#: "Remove this " + Item.AuthenticationType + " login from your account" %>'
+            ToolTip='<%# "Remove this " + Item.AuthenticationType + " login from your account" %>'
             CssClass="btn btn-default full-width" />
       </li>
    </ItemTemplate>

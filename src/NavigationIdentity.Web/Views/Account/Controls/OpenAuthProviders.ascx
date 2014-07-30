@@ -31,7 +31,7 @@
                OnCallingDataMethods="GetAccountController">
                <EditItemTemplate>
                   <asp:Button runat="server" CommandName="Update" Text="<%# Item.AuthenticationType %>" 
-                     CssClass="btn btn-default full-width" ToolTip='<%#: String.Format("Log in using your {0} account", Item.Caption) %>' />
+                     CssClass="btn btn-default full-width" ToolTip='<%# String.Format("Log in using your {0} account", Item.Caption) %>' />
                </EditItemTemplate>
             </asp:FormView>
          </li>
